@@ -1,0 +1,7 @@
+project:
+    - ban
+        virtualenv
+            path: "C:\Users\xbw635\workspaces\ban_project\banenv"
+    - collectivites
+        virtualenv
+            path: "C:\Users\xbw635\workspaces\collectivites_project\collectivites_env"
