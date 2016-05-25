@@ -1,0 +1,1433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<style>
+      .table {
+        background-color:#F5F5FF;
+        border-left:4px solid gray;
+        border-bottom:4px solid gray;
+        border-top:4px solid gray;
+        border-right:4px solid gray;
+        margin-bottom:3em;
+        margin-left:2em;
+        margin-right:2em;
+        padding:1em;
+      }
+      .tableNameHeading h1 {
+          display: inline;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-size:125%;
+        font-weight:bold;
+      }
+        
+      .tableNameHeading h2 {
+        display: inline;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-size:115%;
+        font-weight:normal;
+      }
+      
+      .tableComment { 
+        background-color:#e4efff; margin-bottom:20px;
+      }
+      
+      .tableDefinition { 
+        padding:2px;
+        border-collapse:collapse;
+        margin-top:1em;
+      }
+
+      .tdTableDefinition {
+        padding-right:10px;
+        vertical-align:top;
+        border-top:1px solid #C0C0C0;
+      }
+
+      .tdLogicalColName {
+        width:20em;
+      }
+      
+      .tdPhysicalColName {
+        width:20em;
+      }
+      
+      .tdDataType {
+        width:10em;
+      }
+
+      .tdPkFlag {
+        width:4em;
+      }
+
+      .tdNullFlag {
+        width:9em;
+      }
+
+      .tdTableHeading {
+        padding:2px;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-weight: bold;
+        vertical-align:top;
+        border-bottom: 1px solid #C0C0C0;
+        background-color: rgb(240,240,240);
+      }
+      
+      .subTitle {
+        font-family: Segoe UI, Arial, sans-serif;
+        font-weight: bold;
+      }
+
+      .references {
+      }
+      .comment {
+        color:#666666;
+        margin-left:3em;
+        padding:0.25em;
+      }
+    </style>
+<title>Model</title>
+</head>
+<body>
+<center>
+<h2>Model</h2>
+</center>
+<h3>List of tables</h3>
+<ul>
+<li>
+<a href="#client">client</a>
+</li>
+<li>
+<a href="#diff">diff</a>
+</li>
+<li>
+<a href="#grant">grant</a>
+</li>
+<li>
+<a href="#group">group</a>
+</li>
+<li>
+<a href="#housenumber">housenumber</a>
+</li>
+<li>
+<a href="#housenumber_group_through">housenumber_group_through</a>
+</li>
+<li>
+<a href="#identifierredirect">identifierredirect</a>
+</li>
+<li>
+<a href="#municipality">municipality</a>
+</li>
+<li>
+<a href="#position">position</a>
+</li>
+<li>
+<a href="#postcode">postcode</a>
+</li>
+<li>
+<a href="#session">session</a>
+</li>
+<li>
+<a href="#user">user</a>
+</li>
+<li>
+<a href="#version">version</a>
+</li>
+</ul>
+<div class="tableNameHeading">
+<h1>client<a name="client"></a>
+</h1>
+<h2>
+      (Physical Name: client)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">id</td><td class="tdTableDefinition">id</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant "m&eacute;tier" unique de l'application cliente dans la ban</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">client_id</td><td class="tdTableDefinition">client_id</td><td class="tdTableDefinition">[1111]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant unique pour dialoguer avec la plateforme d'identification</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">name</td><td class="tdTableDefinition">name</td><td class="tdTableDefinition">VARCHAR(100)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">nom du client</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">user_id
+                &nbsp;(<a href="#user">FK</a>)
+              </td><td class="tdTableDefinition">user_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">utilisateur concern&eacute;<br>(cl&eacute; primaire de la table des utilisateurs "user")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">client_secret</td><td class="tdTableDefinition">client_secret</td><td class="tdTableDefinition">VARCHAR(55)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; secr&egrave;te attribu&eacute;e au client pour communiquer avec la BAN</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">redirect_uris</td><td class="tdTableDefinition">redirect_uris</td><td class="tdTableDefinition">[2003]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">liste d'uris de redirection ?</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">grant_type</td><td class="tdTableDefinition">grant_type</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">is_confidential</td><td class="tdTableDefinition">is_confidential</td><td class="tdTableDefinition">BOOLEAN</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#user">user</a> through (user_id)</li>
+</ul>
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#session">session</a> referencing (pk)</li>
+<li>
+<a href="#grant">grant</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>diff<a name="diff"></a>
+</h1>
+<h2>
+      (Physical Name: diff)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">old_id
+                &nbsp;(<a href="#version">FK</a>)
+              </td><td class="tdTableDefinition">old_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">new_id
+                &nbsp;(<a href="#version">FK</a>)
+              </td><td class="tdTableDefinition">new_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">diff</td><td class="tdTableDefinition">diff</td><td class="tdTableDefinition">[1111]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#version">version</a> through (old_id)</li>
+<li>
+<a href="#version">version</a> through (new_id)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>grant<a name="grant"></a>
+</h1>
+<h2>
+      (Physical Name: grant)
+      </h2>
+<p class="comment">droits de l'utilisateur en fonction de l'api cliente dans BAN</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">user_id
+                &nbsp;(<a href="#user">FK</a>)
+              </td><td class="tdTableDefinition">user_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">utilisateur concern&eacute;<br>(cl&eacute; primaire de la table des utilisateurs "user")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">client_id
+                &nbsp;(<a href="#client">FK</a>)
+              </td><td class="tdTableDefinition">client_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">API cliente concern&eacute;e<br>(cl&eacute; primaire de la table des clients "client")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">code</td><td class="tdTableDefinition">code</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">redirect_uri</td><td class="tdTableDefinition">redirect_uri</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">uri de redirection ?</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">scope</td><td class="tdTableDefinition">scope</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">expires</td><td class="tdTableDefinition">expires</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de fin des droits</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#client">client</a> through (client_id)</li>
+<li>
+<a href="#user">user</a> through (user_id)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>group<a name="group"></a>
+</h1>
+<h2>
+      (Physical Name: group)
+      </h2>
+<p class="comment">voie+ (voie/zone)</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">id</td><td class="tdTableDefinition">id</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant m&eacute;tier unique de la voie+ dans la ban</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">version</td><td class="tdTableDefinition">version</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro de version de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de cr&eacute;ation de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">created_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a cr&eacute;&eacute; l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de derni&egrave;re modification de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">modified_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a modifi&eacute; en dernier l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">name</td><td class="tdTableDefinition">name</td><td class="tdTableDefinition">VARCHAR(200)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">libell&eacute; de la voie+</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">alias</td><td class="tdTableDefinition">alias</td><td class="tdTableDefinition">[2003]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">municipality_id
+                &nbsp;(<a href="#municipality">FK</a>)
+              </td><td class="tdTableDefinition">municipality_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">commune d'appartenance (cl&eacute; primaire de la table des communes "municipality")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">attributes</td><td class="tdTableDefinition">attributes</td><td class="tdTableDefinition">[1111]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">kind</td><td class="tdTableDefinition">kind</td><td class="tdTableDefinition">VARCHAR(64)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">type de voie+ (voie/zone)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">fantoir</td><td class="tdTableDefinition">fantoir</td><td class="tdTableDefinition">VARCHAR(9)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro fantoir de la voie+</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">laposte</td><td class="tdTableDefinition">laposte</td><td class="tdTableDefinition">VARCHAR(10)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro cea de la voie+</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">ign</td><td class="tdTableDefinition">ign</td><td class="tdTableDefinition">VARCHAR(24)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro bduni ? De la voie+</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#municipality">municipality</a> through (municipality_id)</li>
+<li>
+<a href="#session">session</a> through (modified_by_id)</li>
+<li>
+<a href="#session">session</a> through (created_by_id)</li>
+</ul>
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#housenumber">housenumber</a> referencing (pk)</li>
+<li>
+<a href="#housenumber_group_through">housenumber_group_through</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>housenumber<a name="housenumber"></a>
+</h1>
+<h2>
+      (Physical Name: housenumber)
+      </h2>
+<p class="comment">Num&eacute;ro dans la voie+</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">id</td><td class="tdTableDefinition">id</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant m&eacute;tier unique du num&eacute;ro dans la ban</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">version</td><td class="tdTableDefinition">version</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro de version de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de cr&eacute;ation de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">created_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a cr&eacute;&eacute; l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de derni&egrave;re modification de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">modified_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a modifi&eacute; en dernier l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">number</td><td class="tdTableDefinition">number</td><td class="tdTableDefinition">VARCHAR(16)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">ordinal</td><td class="tdTableDefinition">ordinal</td><td class="tdTableDefinition">VARCHAR(16)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">extension</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">parent_id
+                &nbsp;(<a href="#group">FK</a>)
+              </td><td class="tdTableDefinition">parent_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">voie+ correspondante (cl&eacute; primaire de la table des voies+ "group")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">cia</td><td class="tdTableDefinition">cia</td><td class="tdTableDefinition">VARCHAR(100)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro/code cia</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">laposte</td><td class="tdTableDefinition">laposte</td><td class="tdTableDefinition">VARCHAR(10)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro cea du num&eacute;ro</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">ign</td><td class="tdTableDefinition">ign</td><td class="tdTableDefinition">VARCHAR(24)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro bduni ? Du num&eacute;ro</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">postcode_id
+                &nbsp;(<a href="#postcode">FK</a>)
+              </td><td class="tdTableDefinition">postcode_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">code postal (cl&eacute; primaire de la table des code postaux "postcode")</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#postcode">postcode</a> through (postcode_id)</li>
+<li>
+<a href="#session">session</a> through (modified_by_id)</li>
+<li>
+<a href="#session">session</a> through (created_by_id)</li>
+<li>
+<a href="#group">group</a> through (parent_id)</li>
+</ul>
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#housenumber_group_through">housenumber_group_through</a> referencing (pk)</li>
+<li>
+<a href="#position">position</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>housenumber_group_through<a name="housenumber_group_through"></a>
+</h1>
+<h2>
+      (Physical Name: housenumber_group_through)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">id (PK)</td><td class="tdTableDefinition">id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">housenumber_id
+                &nbsp;(<a href="#housenumber">FK</a>)
+              </td><td class="tdTableDefinition">housenumber_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">group_id
+                &nbsp;(<a href="#group">FK</a>)
+              </td><td class="tdTableDefinition">group_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#group">group</a> through (group_id)</li>
+<li>
+<a href="#housenumber">housenumber</a> through (housenumber_id)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>identifierredirect<a name="identifierredirect"></a>
+</h1>
+<h2>
+      (Physical Name: identifierredirect)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">model_name</td><td class="tdTableDefinition">model_name</td><td class="tdTableDefinition">VARCHAR(64)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">nom de la table versionn&eacute;e</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">identifier</td><td class="tdTableDefinition">identifier</td><td class="tdTableDefinition">VARCHAR(64)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">old</td><td class="tdTableDefinition">old</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">new</td><td class="tdTableDefinition">new</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+</table>
+<div class="references"></div>
+</div>
+<div class="tableNameHeading">
+<h1>municipality<a name="municipality"></a>
+</h1>
+<h2>
+      (Physical Name: municipality)
+      </h2>
+<p class="comment">Commune</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">id</td><td class="tdTableDefinition">id</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant m&eacute;tier unique de la commune dans la ban</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">version</td><td class="tdTableDefinition">version</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro de version de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de cr&eacute;ation de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">created_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a cr&eacute;&eacute; l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de derni&egrave;re modification de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">modified_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a modifi&eacute; en dernier l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">name</td><td class="tdTableDefinition">name</td><td class="tdTableDefinition">VARCHAR(200)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">libell&eacute; de la commune</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">alias</td><td class="tdTableDefinition">alias</td><td class="tdTableDefinition">[2003]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">insee</td><td class="tdTableDefinition">insee</td><td class="tdTableDefinition">VARCHAR(5)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro insee de la commune</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">siren</td><td class="tdTableDefinition">siren</td><td class="tdTableDefinition">VARCHAR(9)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro siren de la commune</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">attributes</td><td class="tdTableDefinition">attributes</td><td class="tdTableDefinition">[1111]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#session">session</a> through (created_by_id)</li>
+<li>
+<a href="#session">session</a> through (modified_by_id)</li>
+</ul>
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#postcode">postcode</a> referencing (pk)</li>
+<li>
+<a href="#group">group</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>position<a name="position"></a>
+</h1>
+<h2>
+      (Physical Name: position)
+      </h2>
+<p class="comment">Donn&eacute;es de g&eacute;olocalisation</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">id</td><td class="tdTableDefinition">id</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant m&eacute;tier unique de la position dans la ban</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">version</td><td class="tdTableDefinition">version</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro de version de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de cr&eacute;ation de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">created_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a cr&eacute;&eacute; l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de derni&egrave;re modification de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">modified_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a modifi&eacute; en dernier l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">center</td><td class="tdTableDefinition">center</td><td class="tdTableDefinition">[1111]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">coordonn&eacute;es du lieu</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">housenumber_id
+                &nbsp;(<a href="#housenumber">FK</a>)
+              </td><td class="tdTableDefinition">housenumber_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro de voie+ (cl&eacute; primaire de la table des num&eacute;ros "housenumber")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">parent_id
+                &nbsp;(<a href="#position">FK</a>)
+              </td><td class="tdTableDefinition">parent_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">position parente (cl&eacute; primaire de la table des positions "position")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">source</td><td class="tdTableDefinition">source</td><td class="tdTableDefinition">VARCHAR(64)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">kind</td><td class="tdTableDefinition">kind</td><td class="tdTableDefinition">VARCHAR(64)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">positioning</td><td class="tdTableDefinition">positioning</td><td class="tdTableDefinition">VARCHAR(32)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">attributes</td><td class="tdTableDefinition">attributes</td><td class="tdTableDefinition">[1111]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">comment</td><td class="tdTableDefinition">comment</td><td class="tdTableDefinition">CLOB</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Commentaires<br>(type de donn&eacute;es = text)</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#session">session</a> through (modified_by_id)</li>
+<li>
+<a href="#session">session</a> through (created_by_id)</li>
+<li>
+<a href="#housenumber">housenumber</a> through (housenumber_id)</li>
+<li>
+<a href="#position">position</a> through (parent_id)</li>
+</ul>
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#position">position</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>postcode<a name="postcode"></a>
+</h1>
+<h2>
+      (Physical Name: postcode)
+      </h2>
+<p class="comment">Code postal</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">id</td><td class="tdTableDefinition">id</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant m&eacute;tier unique du code postal dans la ban</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">version</td><td class="tdTableDefinition">version</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">num&eacute;ro de version de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">created_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de cr&eacute;ation de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">created_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">created_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a cr&eacute;&eacute; l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">modified_at</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">date de derni&egrave;re modification de l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">modified_by_id
+                &nbsp;(<a href="#session">FK</a>)
+              </td><td class="tdTableDefinition">modified_by_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">session qui a modifi&eacute; en dernier l'enregistrement</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">name</td><td class="tdTableDefinition">name</td><td class="tdTableDefinition">VARCHAR(200)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">commune (champ "name" de la table des communes "municipality")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">alias</td><td class="tdTableDefinition">alias</td><td class="tdTableDefinition">[2003]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">municipality_id
+                &nbsp;(<a href="#municipality">FK</a>)
+              </td><td class="tdTableDefinition">municipality_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">commune (cl&eacute; primaire de la table des communes "municipality")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">attributes</td><td class="tdTableDefinition">attributes</td><td class="tdTableDefinition">[1111]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">code</td><td class="tdTableDefinition">code</td><td class="tdTableDefinition">VARCHAR(5)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">libell&eacute; du code postal</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#municipality">municipality</a> through (municipality_id)</li>
+<li>
+<a href="#session">session</a> through (created_by_id)</li>
+<li>
+<a href="#session">session</a> through (modified_by_id)</li>
+</ul>
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#housenumber">housenumber</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>session<a name="session"></a>
+</h1>
+<h2>
+      (Physical Name: session)
+      </h2>
+<p class="comment">Session initi&eacute;e par la BAN pour le client</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">user_id
+                &nbsp;(<a href="#user">FK</a>)
+              </td><td class="tdTableDefinition">user_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">utilisateur connect&eacute;e<br>(cl&eacute; primaire de la table des utilisateurs "user")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">client_id
+                &nbsp;(<a href="#client">FK</a>)
+              </td><td class="tdTableDefinition">client_id</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">API cliente connect&eacute;e<br>(cl&eacute; primaire de la table des clients "client")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">ip</td><td class="tdTableDefinition">ip</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">ip du client</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">email</td><td class="tdTableDefinition">email</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">email de l'utilisateur connect&eacute;</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#client">client</a> through (client_id)</li>
+<li>
+<a href="#user">user</a> through (user_id)</li>
+</ul>
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#municipality">municipality</a> referencing (pk)</li>
+<li>
+<a href="#municipality">municipality</a> referencing (pk)</li>
+<li>
+<a href="#postcode">postcode</a> referencing (pk)</li>
+<li>
+<a href="#postcode">postcode</a> referencing (pk)</li>
+<li>
+<a href="#group">group</a> referencing (pk)</li>
+<li>
+<a href="#group">group</a> referencing (pk)</li>
+<li>
+<a href="#housenumber">housenumber</a> referencing (pk)</li>
+<li>
+<a href="#housenumber">housenumber</a> referencing (pk)</li>
+<li>
+<a href="#position">position</a> referencing (pk)</li>
+<li>
+<a href="#position">position</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>user<a name="user"></a>
+</h1>
+<h2>
+      (Physical Name: user)
+      </h2>
+<p class="comment">Utilisateur d&eacute;clar&eacute;</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">cl&eacute; primaire de la table</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">id</td><td class="tdTableDefinition">id</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant "m&eacute;tier" unique de l'utilisateur dans la ban</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">username</td><td class="tdTableDefinition">username</td><td class="tdTableDefinition">VARCHAR(100)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">identifiant profil</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">email</td><td class="tdTableDefinition">email</td><td class="tdTableDefinition">VARCHAR(100)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">adresse mail</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">company</td><td class="tdTableDefinition">company</td><td class="tdTableDefinition">VARCHAR(100)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">origine de l'utilisateur (soci&eacute;t&eacute;/mairie&hellip;)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">password</td><td class="tdTableDefinition">password</td><td class="tdTableDefinition">[-2]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">mot de passe</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">is_staff</td><td class="tdTableDefinition">is_staff</td><td class="tdTableDefinition">BOOLEAN</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#client">client</a> referencing (pk)</li>
+<li>
+<a href="#grant">grant</a> referencing (pk)</li>
+<li>
+<a href="#session">session</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>version<a name="version"></a>
+</h1>
+<h2>
+      (Physical Name: version)
+      </h2>
+<p class="comment">cl&eacute; primaire de la table</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">pk (PK)</td><td class="tdTableDefinition">pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">model_name</td><td class="tdTableDefinition">model_name</td><td class="tdTableDefinition">VARCHAR(64)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">nom de la table versionn&eacute;e</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">model_pk</td><td class="tdTableDefinition">model_pk</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">valeur de la cl&eacute; primaire de la table versionn&eacute;e</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">sequential</td><td class="tdTableDefinition">sequential</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">data</td><td class="tdTableDefinition">data</td><td class="tdTableDefinition">[1111]</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">???</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#diff">diff</a> referencing (pk)</li>
+<li>
+<a href="#diff">diff</a> referencing (pk)</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
